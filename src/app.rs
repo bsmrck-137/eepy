@@ -115,7 +115,7 @@ pub fn App() -> impl IntoView {
     let (video_hint_class, set_video_hint_class) = signal(String::new());
 
     // Status
-    let (status_text, set_status_text) = signal("READY TO SLEEP".to_string());
+    let (status_text, set_status_text) = signal("READY TO POD".to_string());
     let (status_class, set_status_class) = signal(String::new());
 
     // Timer interval handle
@@ -212,7 +212,7 @@ pub fn App() -> impl IntoView {
                 } else {
                     // Timer finished
                     set_is_running.set(false);
-                    set_status_text.set("SWEET DREAMS!".to_string());
+                    set_status_text.set("SWEET DREAMS WHALE!".to_string());
                     set_status_class.set(String::new());
 
                     // Clear interval
@@ -303,8 +303,8 @@ pub fn App() -> impl IntoView {
 
         <div class="app-container">
             <header class="header">
-                <span class="moon-icon">"🌙"</span>
-                <h1 class="title">"SLEEPY VIDEO"</h1>
+                <span class="moon-icon">"🐳"</span>
+                <h1 class="title">"SLEEPY WHALE PLAYER"</h1>
                 <p class="subtitle">"Getting eepy?"</p>
             </header>
 
@@ -470,5 +470,7 @@ pub fn App() -> impl IntoView {
                 <span class="footer-icon">"💤"</span>
             </footer>
         </div>
+
+        <div class="branding">"by sleepy whale co."</div>
     }
 }

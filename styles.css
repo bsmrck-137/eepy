@@ -2,18 +2,34 @@
 
 :root {
   /* Cozy warm palette - no gradients, flat colors */
-  --bg-dark: #1a1520;
-  --bg-panel: #2d2438;
-  --bg-panel-light: #3d3248;
-  --accent-warm: #e8a849;
-  --accent-orange: #d4764a;
-  --accent-cream: #f5e6c8;
-  --accent-brown: #8b6b4a;
-  --text-primary: #f5e6c8;
-  --text-dim: #9a8a7a;
-  --pixel-shadow: #0d0a10;
-  --success: #7bc96f;
-  --danger: #d46a6a;
+  /* Deep Sea / Abyssal Theme */
+  --bg-dark: #050b14;
+  /* The crushing midnight zone */
+  --bg-panel: #0d1b2a;
+  /* Dark oceanic depth */
+  --bg-panel-light: #1b263b;
+  /* Deep water with a hint of light */
+
+  --accent-warm: #00f5d4;
+  /* Bioluminescent cyan */
+  --accent-orange: #4cc9f0;
+  /* Tropical surface water blue */
+  --accent-cream: #e0fbfc;
+  /* Sea foam / pale jellyfish white */
+  --accent-brown: #3e5c76;
+  /* Submerged steel / cold slate */
+
+  --text-primary: #e0fbfc;
+  /* Crisp, cool white-blue */
+  --text-dim: #778da9;
+  /* Foggy, underwater grey-blue */
+  --pixel-shadow: #02050a;
+  /* Absolute trench black */
+
+  --success: #20bf55;
+  /* Glowing algae green */
+  --danger: #f72585;
+  /* Deep-sea predator pink/red */
 
   /* Spacing */
   --space-xs: 4px;
@@ -104,19 +120,27 @@ body::before {
   text-align: center;
   z-index: 10;
   position: relative;
+  padding-top: 60px;
+  /* offset for fixed header */
 }
 
 /* Header with moon icon */
 .header {
-  margin-bottom: var(--space-xl);
-  position: relative;
-  z-index: 102;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background-color: var(--bg-dark);
 }
 
 .moon-icon {
-  font-size: 48px;
-  margin-bottom: var(--space-md);
-  display: block;
+  font-size: 24px;
+  display: inline-block;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -133,16 +157,16 @@ body::before {
 }
 
 .title {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--accent-warm);
   text-shadow: 2px 2px 0 var(--pixel-shadow);
   letter-spacing: 2px;
 }
 
 .subtitle {
-  font-size: 8px;
+  font-size: 7px;
   color: var(--text-dim);
-  margin-top: var(--space-sm);
+  margin-left: var(--space-sm);
 }
 
 /* Main panel */
@@ -371,6 +395,18 @@ body::before {
 
 .footer-icon {
   margin: 0 4px;
+}
+
+/* Branding */
+.branding {
+  position: fixed;
+  bottom: 10px;
+  right: 40px;
+  font-size: 6px;
+  color: var(--text-dim);
+  opacity: 0.5;
+  z-index: 200;
+  pointer-events: none;
 }
 
 /* Decorative corner pixels */
