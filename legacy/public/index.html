@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleepy Video - Sleep Timer</title>
+  <meta name="description" content="A cozy sleep timer that pauses your browser media and puts your computer to sleep.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+</head>
+
+<body>
+  <!-- Dim overlay for video mode -->
+  <div class="dim-overlay" id="dimOverlay"></div>
+
+  <!-- Corner decorations -->
+  <div class="corner-decor corner-tl"></div>
+  <div class="corner-decor corner-tr"></div>
+  <div class="corner-decor corner-bl"></div>
+  <div class="corner-decor corner-br"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <span class="moon-icon" id="moonIcon">🌙</span>
+      <h1 class="title">SLEEPY VIDEO</h1>
+      <p class="subtitle">SET IT AND FORGET IT</p>
+    </header>
+
+    <!-- Video section (hidden until video is loaded) -->
+    <section class="video-section hidden" id="videoSection">
+      <div class="video-container pixel-border">
+        <div class="video-wrapper" id="videoWrapper">
+          <!-- YouTube iframe will be injected here -->
+        </div>
+        <button class="video-close-btn" id="videoCloseBtn" title="Close video">✕</button>
+      </div>
+    </section>
+
+    <!-- Video URL input -->
+    <div class="video-input-group" id="videoInputGroup">
+      <label for="videoUrl">📺 VIDEO URL</label>
+      <div class="video-input-row">
+        <input type="url" id="videoUrl" class="video-input pixel-border" placeholder="Paste YouTube link...">
+        <button class="btn btn-load pixel-border" id="loadVideoBtn">LOAD</button>
+      </div>
+      <p class="video-hint" id="videoHint"></p>
+    </div>
+
+    <!-- Main panel -->
+    <main class="panel pixel-border">
+      <!-- Timer display -->
+      <div class="timer-display pixel-border" id="timerDisplay">
+        <div class="timer-value" id="timerValue">00:00:00</div>
+        <div class="timer-label">REMAINING</div>
+        <!-- Zzz animation -->
+        <span class="zzz hidden">z</span>
+        <span class="zzz hidden">z</span>
+        <span class="zzz hidden">z</span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-container pixel-border">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Time presets -->
+      <div class="preset-grid" id="presetGrid">
+        <button class="preset-btn pixel-border" data-minutes="15">15m</button>
+        <button class="preset-btn pixel-border" data-minutes="30">30m</button>
+        <button class="preset-btn pixel-border" data-minutes="45">45m</button>
+        <button class="preset-btn pixel-border selected" data-minutes="60">1h</button>
+        <button class="preset-btn pixel-border" data-minutes="90">1.5h</button>
+        <button class="preset-btn pixel-border" data-minutes="120">2h</button>
+        <button class="preset-btn pixel-border" data-minutes="180">3h</button>
+        <button class="preset-btn pixel-border" data-minutes="240">4h</button>
+      </div>
+
+      <!-- Custom input -->
+      <div class="custom-input-group">
+        <label for="customMinutes">CUSTOM:</label>
+        <input type="number" id="customMinutes" class="custom-input pixel-border" min="1" max="480" placeholder="60">
+        <span style="font-size: 8px; color: var(--text-dim);">MIN</span>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-primary pixel-border" id="startBtn">
+          ▶ START
+        </button>
+        <button class="btn btn-danger pixel-border hidden" id="cancelBtn">
+          ■ CANCEL
+        </button>
+      </div>
+
+      <!-- Status -->
+      <p class="status" id="status">READY TO SLEEP</p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-icon">💤</span>
+      PAUSES MEDIA + SLEEPS COMPUTER
+      <span class="footer-icon">💤</span>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+
+</html>
